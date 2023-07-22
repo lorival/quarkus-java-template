@@ -18,22 +18,22 @@ build:
 run:
 	open http://localhost:8080
 	open http://localhost:8080/q/dev/
-	mvn compile quarkus:dev
+	mvn -f app quarkus:dev
 
 .PHONY: docker # = Build docker image
 docker:
 	mvn clean package -DskipTests
-	docker build -f src/main/docker/Dockerfile.jvm -t quarkus/quarkus-java-template .
+	cd app && docker build -f src/main/docker/Dockerfile.jvm -t quarkus-java-template .
 
 .PHONY: docker-native # = Build docker image with Quarkus native (no JVM)
 docker-native:
 	mvn clean package -Dnative -DskipTests -Dquarkus.native.container-build=true
-	docker build -f src/main/docker/Dockerfile.native -t quarkus/quarkus-java-template .
+	cd app && docker build -f src/main/docker/Dockerfile.native -t quarkus-java-template .
 
-.PHONY: run-docker # = Run docker image builded (press 'ctrl + c' to quit)
-run-docker:
+.PHONY: docker-run # = Run docker image built (press 'ctrl + c' to quit)
+docker-run:
 	open http://localhost:8080
-	docker run -i --rm -p 8080:8080 quarkus/quarkus-java-template
+	docker run -i --rm -p 8080:8080 quarkus-java-template
 
 .PHONY: format # = Format code (this step runs within the 'make build')
 format:

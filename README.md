@@ -50,6 +50,7 @@ make run
 ### Conventions
 - Java code formatting: [Google Java style](https://google.github.io/styleguide/javaguide.html) guaranteed by [Spotify maven plugin](https://github.com/spotify/fmt-maven-plugin)
 - Git commit style: [Conventional Commits](https://www.conventionalcommits.org/)
+- Project modularization: [Maven submodules](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
 
 ## Next steps, not ordered
 - Add lombok
