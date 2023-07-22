@@ -48,9 +48,11 @@ make run
 - Tool to test REST endpoints: [RESTAssured](https://rest-assured.io/) (manage by Maven)
 
 ### Conventions
-- Java code formatting: [Google Java style](https://google.github.io/styleguide/javaguide.html) guaranteed by [Spotify maven plugin](https://github.com/spotify/fmt-maven-plugin)
+- Java code formatting: [Google Java style](https://google.github.io/styleguide/javaguide.html) guaranteed by [Spotify format maven plugin](https://github.com/spotify/fmt-maven-plugin)
+- XML formatting: guaranteed by [XML format maven plugin](https://acegi.github.io/xml-format-maven-plugin/)
 - Git commit style: [Conventional Commits](https://www.conventionalcommits.org/)
 - Project modularization: [Maven submodules](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
+
 
 ## Next steps, not ordered
 - Add lombok

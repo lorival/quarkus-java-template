@@ -1,16 +1,13 @@
-<?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.lorival</groupId>
   <artifactId>quarkus-java-template</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-
   <modules>
     <module>app</module>
   </modules>
-
   <properties>
     <compiler-plugin.version>3.11.0</compiler-plugin.version>
     <maven.compiler.release>17</maven.compiler.release>
@@ -22,8 +19,8 @@
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0</surefire-plugin.version>
     <spotify.fmt-maven-plugin.version>2.20</spotify.fmt-maven-plugin.version>
+    <xml-format-maven-plugin.version>3.2.2</xml-format-maven-plugin.version>
   </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -35,10 +32,9 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
   <build>
     <plugins>
-      <!-- To format Java code using Google style -->
+      <!-- To format Java files using Google style -->
       <plugin>
         <groupId>com.spotify.fmt</groupId>
         <artifactId>fmt-maven-plugin</artifactId>
@@ -48,6 +44,23 @@
             <goals>
               <goal>format</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- To format XML files using Google style -->
+      <plugin>
+        <groupId>au.com.acegi</groupId>
+        <artifactId>xml-format-maven-plugin</artifactId>
+        <version>${xml-format-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>xml-format</id>
+            <goals>
+              <goal>xml-format</goal>
+            </goals>
+            <configuration>
+              <indentSize>2</indentSize>
+            </configuration>
           </execution>
         </executions>
       </plugin>

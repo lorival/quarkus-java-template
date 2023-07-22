@@ -1,18 +1,14 @@
-<?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>br.com.lorival</groupId>
     <artifactId>quarkus-java-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-
   <groupId>br.com.lorival</groupId>
   <artifactId>app</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -33,7 +29,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
@@ -91,7 +86,6 @@
       </plugin>
     </plugins>
   </build>
-
   <!-- To build in native way (no JVM) -->
   <profiles>
     <profile>
