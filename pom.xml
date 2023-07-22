@@ -15,6 +15,7 @@
     <quarkus.platform.version>3.2.1.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0</surefire-plugin.version>
+    <spotify.fmt-maven-plugin.version>2.20</spotify.fmt-maven-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -99,6 +100,18 @@
                 <maven.home>${maven.home}</maven.home>
               </systemPropertyVariables>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.spotify.fmt</groupId>
+        <artifactId>fmt-maven-plugin</artifactId>
+        <version>${spotify.fmt-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>format</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>

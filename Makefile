@@ -34,4 +34,7 @@ docker-native:
 run-docker:
 	open http://localhost:8080
 	docker run -i --rm -p 8080:8080 quarkus/quarkus-java-template
-    
+
+.PHONY: format # = Format code (this step runs within the 'make build')
+format:
+	mvn com.spotify.fmt:fmt-maven-plugin:format

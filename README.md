@@ -48,6 +48,7 @@ make run
 - Tool to test REST endpoints: [RESTAssured](https://rest-assured.io/) (manage by Maven)
 
 ### Conventions
+- Java code formatting: [Google Java style](https://google.github.io/styleguide/javaguide.html) guaranteed by [Spotify maven plugin](https://github.com/spotify/fmt-maven-plugin)
 - Git commit style: [Conventional Commits](https://www.conventionalcommits.org/)
 
 ## Next steps, not ordered
@@ -56,7 +57,6 @@ make run
 - Add reactive JPA with Oracle
 - Add liquibase
 - Create simple CRUD as example
-- Add Code formatter
 - Add acceptance criteria tests
 - Add Load and performance tests
 - Add OWASP dependency checker
