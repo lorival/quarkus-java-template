@@ -6,6 +6,7 @@ This project is a template to develop reactive microservices using Quarkus with 
 
 - Operational system: macOS
 - Package Manager: [Homebrew](https://brew.sh/)
+- Automation tool: [GNU make](https://www.gnu.org/software/make/manual/make.html) 
 - IDE: [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/?section=mac)
 - Code version control: [Git](https://git-scm.com/)
 - Container platform: [Docker](https://www.docker.com/)
@@ -62,37 +63,46 @@ make run
   - run ``$ make build`` to generate the Java interfaces to be implemented in app module
 
 
-## Next steps, not ordered
+## Roadmap
+
+### Version 0.0.1
 - Add lombok
 - Add Swagger and OpenAPI
-- Add reactive JPA with Oracle
+- Add reactive JPA with PostgreSQL
 - Add liquibase
 - Create simple CRUD as example
-- Add acceptance criteria tests
-- Add Load and performance tests
-- Add OWASP dependency checker
 - Define structure standard for project
-- Use distroless for image
 - Define type of unit tests
-- Create smoke tests
-- Implement authentication using oauth
-- Configure pipeline for Gitlab
+- add code coverage
+
+### Version 1.0.0
 - Add archunit
-- Add cache
-- Add tool for profiling
-- Add commit rule checker
-- Have one profile per each type of test
-- Add Sast tools
-- Add Dast tools
+- Configure pipeline for Gitlab
+- Add OWASP dependency checker
 - Auto-Identify dependencies to update
 - Auto-identify version to increase
+
+### Version 2.0.0
+- Add acceptance criteria tests
+- Add Load and performance tests
+- Have one profile per each type of test
 - Add visual code evolution as DNA
-- add code coverage
+
+### Version 3.0.0
+- Add Sast tools
+- Add cache
+- Add commit rule checker
+- Create smoke tests
+
+### Future
+- Use distroless for image
+- Add tool for profiling
+- Add Dast tools
 - Implement a client with circuitbreaker for another service
 - Implement monitoring
 
 ## Next repositories as examples
+- Implement authentication using oauth
 - Implement RabbitMQ
 - Implement Kafka
 - Implement RPC
-
