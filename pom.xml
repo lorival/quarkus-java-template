@@ -6,6 +6,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
+    <module>api-specification</module>
     <module>app</module>
   </modules>
   <properties>
@@ -20,6 +21,7 @@
     <surefire-plugin.version>3.0.0</surefire-plugin.version>
     <spotify.fmt-maven-plugin.version>2.20</spotify.fmt-maven-plugin.version>
     <xml-format-maven-plugin.version>3.2.2</xml-format-maven-plugin.version>
+    <openapi-generator-maven-plugin.version>6.6.0</openapi-generator-maven-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -33,6 +35,15 @@
     </dependencies>
   </dependencyManagement>
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.openapitools</groupId>
+          <artifactId>openapi-generator-maven-plugin</artifactId>
+          <version>${openapi-generator-maven-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <!-- To format Java files using Google style -->
       <plugin>

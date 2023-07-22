@@ -38,3 +38,8 @@ docker-run:
 .PHONY: format # = Format code (this step runs within the 'make build')
 format:
 	mvn com.spotify.fmt:fmt-maven-plugin:format
+
+.PHONY: api-editor # = Run Swagger editor to support the development of openAPI specification files
+api-editor:
+	docker-compose up -d api-editor
+	open http://localhost

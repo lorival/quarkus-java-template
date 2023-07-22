@@ -1,0 +1,13 @@
+version: '3'
+services:
+  api-editor:
+    container_name: api-editor
+    image: swaggerapi/swagger-editor
+    platform: linux/amd64
+    environment:
+      - SWAGGER_FILE=/usr/share/nginx/html/specification.yml
+    volumes:
+      - /api-specification/src/main/resources/open-api/specification.yml
+    ports:
+      - "80:8080"
+

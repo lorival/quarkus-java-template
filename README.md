@@ -51,7 +51,15 @@ make run
 - Java code formatting: [Google Java style](https://google.github.io/styleguide/javaguide.html) guaranteed by [Spotify format maven plugin](https://github.com/spotify/fmt-maven-plugin)
 - XML formatting: guaranteed by [XML format maven plugin](https://acegi.github.io/xml-format-maven-plugin/)
 - Git commit style: [Conventional Commits](https://www.conventionalcommits.org/)
+
+### Best practices
 - Project modularization: [Maven submodules](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
+  - module ``api-specification``: responsible for the definition of project APIs
+  - module ``app``: responsible for the implementation of project APIs
+- API-first strategy: API specification defined by [Swagger editor](https://swagger.io/tools/swagger-editor/) following [OpenAPI](https://www.openapis.org/) format
+  - run ``$ make api-editor`` to open the current specification.yml file, from api-specification module, within the editor 
+  - after changes download the file and replace the current one in the repository
+  - run ``$ make build`` to generate the Java interfaces to be implemented in app module
 
 
 ## Next steps, not ordered
