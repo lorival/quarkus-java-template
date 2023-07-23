@@ -28,6 +28,10 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
       <scope>test</scope>
     </dependency>
@@ -59,7 +63,7 @@
               <modelPackage>br.com.lorival</modelPackage>
               <generateModelTests>false</generateModelTests>
               <generateModelDocumentation>false</generateModelDocumentation>
-              <generateSupportingFiles>false</generateSupportingFiles>
+              <generateSupportingFiles>true</generateSupportingFiles>
               <generateApiTests>false</generateApiTests>
               <generateApiDocumentation>false</generateApiDocumentation>
               <auth>false</auth>
@@ -81,6 +85,31 @@
               <sources>
                 <source>${project.build.directory}/generated-sources/openapi/src/gen/java</source>
               </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!--maven resource plugin to add openapi.yaml available for swagger-ui-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-openapi-yaml</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/classes/META-INF</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${project.build.directory}/generated-sources/openapi/src/main/openapi</directory>
+                  <includes>
+                    <include>openapi.yaml</include>
+                  </includes>
+                </resource>
+              </resources>
             </configuration>
           </execution>
         </executions>

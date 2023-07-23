@@ -57,17 +57,16 @@ make run
 - Project modularization: [Maven submodules](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
   - module ``api-specification``: responsible for the definition of project APIs
   - module ``app``: responsible for the implementation of project APIs
-- API-first strategy: API specification defined by [Swagger editor](https://swagger.io/tools/swagger-editor/) following [OpenAPI](https://www.openapis.org/) format
+- API-first strategy: REST API specification defined by [Swagger editor](https://swagger.io/tools/swagger-editor/) following [OpenAPI](https://www.openapis.org/) format
   - run ``$ make api-editor`` to open the current specification.yml file, from api-specification module, within the editor 
   - after changes download the file and replace the current one in the repository
   - run ``$ make build`` to generate the Java interfaces to be implemented in app module
-
+- Make REST API available via Swagger-ui only for development environment and never for production
 
 ## Roadmap
 
 ### Version 0.0.1
 - Add lombok
-- Add Swagger and OpenAPI
 - Add reactive JPA with PostgreSQL
 - Add liquibase
 - Create simple CRUD as example

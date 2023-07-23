@@ -18,7 +18,7 @@ build:
 run:
 	open http://localhost:8080
 	open http://localhost:8080/q/dev/
-	mvn -f app quarkus:dev
+	mvn -f app quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
 
 .PHONY: docker # = Build docker image
 docker:
@@ -33,7 +33,7 @@ docker-native:
 .PHONY: docker-run # = Run docker image built (press 'ctrl + c' to quit)
 docker-run:
 	open http://localhost:8080
-	docker run -i --rm -p 8080:8080 quarkus-java-template
+	docker run -e "QUARKUS_SWAGGER_UI_ENABLE=true" -e "QUARKUS_SMALLRYE_OPENAPI_ENABLE=true" -i --rm -p 8080:8080 quarkus-java-template
 
 .PHONY: format # = Format code (this step runs within the 'make build')
 format:
