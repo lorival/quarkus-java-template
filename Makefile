@@ -7,7 +7,7 @@ install:
 	brew install maven
 	brew install curl 
 	curl -s "https://get.sdkman.io" | bash
-	bash -c 'source "$${HOME}/.sdkman/bin/sdkman-init.sh" && sdk selfupdate && sdk install java 17.0.8-zulu'
+	bash -c 'source "$${HOME}/.sdkman/bin/sdkman-init.sh" && sdk selfupdate && sdk install java 17.0.8-tem'
 	mvn clean install
 
 .PHONY: build # = Build application
