@@ -1,16 +1,15 @@
 # Quarkus Java Template Repository
 
-This project is a template to develop reactive microservices using Quarkus with Java language.
+This project is a template to develop reactive microservices using [Quarkus](https://quarkus.io/) with [Java](https://docs.oracle.com/en/java/javase/index.html) language and [GitLab CI/CD](https://docs.gitlab.com/ee/ci/).
 
-## Develop environment expected before start
+## Local develop environment expected before start
 
-- Operational system: macOS
+- Operational system: Linux or macOS (For Windows we can use WSL with some Linux flavour)
 - Package Manager: [Homebrew](https://brew.sh/)
 - Automation tool: [GNU make](https://www.gnu.org/software/make/manual/make.html) 
 - IDE: [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/?section=mac)
 - Code version control: [Git](https://git-scm.com/)
 - Container platform: [Docker](https://www.docker.com/)
-- CI/CD platform: [GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
 
 ## Getting started
 
@@ -19,7 +18,7 @@ View all CLI available commands:
 make
 ```
 
-Install all dependencies to develop environment:
+Install all dependencies to local develop environment:
 ```shell script
 make install
 ```
@@ -33,11 +32,15 @@ make run
 
 ### Java 
 - Java version: [Java 17](https://jdk.java.net/17/)
+  - Reason: Version 17 is the latest LTS and will be supported until at least 2029 
 - Java SDK manager: [SDKMan](https://sdkman.io/) (installed by make install)
-- Java OpenJDK: [17.0.8-zulu](https://www.azul.com/downloads/?package=jdk#zulu) (installed by make install)
-
+  - Reason: This manager support us to download, configure and change different Java SDKs easily using CLI
+- Java SDK: [Eclipse Adoptium Temurin](https://adoptium.net/) (installed by make install)
+  - Reason: Open-source SDK for personal and enterprise development
+    
 ### Core Tools and Frameworks
 - Microservice framework: [Quarkus](https://quarkus.io/)
+  - Reason: Faster way to develop a faster and reactive application based in market standards  
 - Dependency management tool: [Maven](https://maven.apache.org/) (Portable embeeded in this project)
 - Reactive toolkit: [Vert.x](https://vertx.io/) (Quarkus integrated)
 
@@ -73,9 +76,11 @@ make run
 - Define structure standard for project
 - Define type of unit tests
 - add code coverage
+- Standard readme
+- Add archunit
+- REST third level of maturity
 
 ### Version 1.0.0
-- Add archunit
 - Configure pipeline for Gitlab
 - Add OWASP dependency checker
 - Auto-Identify dependencies to update
