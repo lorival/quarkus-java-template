@@ -11,6 +11,16 @@
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
     <dependency>
+      <groupId>br.com.lorival</groupId>
+      <artifactId>domain</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>br.com.lorival</groupId>
+      <artifactId>infrastructure</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>
@@ -31,6 +41,14 @@
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.quarkiverse.openapi.generator</groupId>
+      <artifactId>quarkus-openapi-generator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client-reactive-jackson</artifactId>
+    </dependency>
+    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
       <scope>test</scope>
@@ -44,34 +62,20 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.openapitools</groupId>
-        <artifactId>openapi-generator-maven-plugin</artifactId>
+        <groupId>io.quarkus</groupId>
+        <artifactId>quarkus-maven-plugin</artifactId>
+        <version>${quarkus.platform.version}</version>
+        <extensions>true</extensions>
         <executions>
           <execution>
             <goals>
-              <goal>generate</goal>
+              <goal>build</goal>
+              <goal>generate-code</goal>
+              <goal>generate-code-tests</goal>
             </goals>
-            <configuration>
-              <inputSpec>${project.basedir}/../api-specification/src/main/resources/open-api/specification.yml</inputSpec>
-              <generatorName>jaxrs-spec</generatorName>
-              <configOptions>
-                <useSwaggerAnnotations>false</useSwaggerAnnotations>
-                <useJakartaEe>true</useJakartaEe>
-                <interfaceOnly>true</interfaceOnly>
-              </configOptions>
-              <apiPackage>br.com.lorival</apiPackage>
-              <modelPackage>br.com.lorival</modelPackage>
-              <generateModelTests>false</generateModelTests>
-              <generateModelDocumentation>false</generateModelDocumentation>
-              <generateSupportingFiles>true</generateSupportingFiles>
-              <generateApiTests>false</generateApiTests>
-              <generateApiDocumentation>false</generateApiDocumentation>
-              <auth>false</auth>
-            </configuration>
           </execution>
         </executions>
       </plugin>
-      <!--maven helper plugin to add generated sources to maven project-->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
@@ -83,13 +87,13 @@
             </goals>
             <configuration>
               <sources>
-                <source>${project.build.directory}/generated-sources/openapi/src/gen/java</source>
+                <source>${project.build.directory}/generated-sources/open-api-yml</source>
               </sources>
             </configuration>
           </execution>
         </executions>
       </plugin>
-      <!--maven resource plugin to add openapi.yaml available for swagger-ui-->
+      <!--maven resource plugin to add openapi.yml available for swagger-ui-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
@@ -104,9 +108,9 @@
               <outputDirectory>${project.build.directory}/classes/META-INF</outputDirectory>
               <resources>
                 <resource>
-                  <directory>${project.build.directory}/generated-sources/openapi/src/main/openapi</directory>
+                  <directory>${project.basedir}/src/main/openapi</directory>
                   <includes>
-                    <include>openapi.yaml</include>
+                    <include>openapi.yml</include>
                   </includes>
                 </resource>
               </resources>
@@ -136,6 +140,13 @@
           <compilerArgs>
             <arg>-parameters</arg>
           </compilerArgs>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>io.quarkus</groupId>
+              <artifactId>quarkus-panache-common</artifactId>
+              <version>${quarkus.platform.version}</version>
+            </path>
+          </annotationProcessorPaths>
         </configuration>
       </plugin>
       <plugin>

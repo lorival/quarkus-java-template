@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>br.com.lorival</groupId>
+    <artifactId>quarkus-java-template</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>br.com.lorival</groupId>
+  <artifactId>domain</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+    <dependency>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.smallrye.reactive</groupId>
+      <artifactId>mutiny</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <!-- Jandex plugin needed to use context beans in other modules -->
+      <plugin>
+        <groupId>io.smallrye</groupId>
+        <artifactId>jandex-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

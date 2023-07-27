@@ -15,9 +15,11 @@ build:
 	mvn clean install -DskipTests
 
 .PHONY: run # = Run the application in dev mode (press 'q' to quit)
-run:
-	open http://localhost:8080
-	open http://localhost:8080/q/dev/
+run: build
+	docker-compose up -d pg pgadmin
+	open http://localhost:5050 # pgadmin
+	open http://localhost:8080 # application
+	open http://localhost:8080/q/dev/ # quarkus for developers
 	mvn -f app quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
 
 .PHONY: docker # = Build docker image
@@ -34,6 +36,9 @@ docker-native:
 docker-run:
 	open http://localhost:8080
 	docker run -e "QUARKUS_SWAGGER_UI_ENABLE=true" -e "QUARKUS_SMALLRYE_OPENAPI_ENABLE=true" -i --rm -p 8080:8080 quarkus-java-template
+
+docker-clean:
+	docker-compose down --volumes --remove-orphans
 
 .PHONY: format # = Format code (this step runs within the 'make build')
 format:

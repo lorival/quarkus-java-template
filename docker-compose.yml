@@ -7,7 +7,34 @@ services:
     environment:
       - SWAGGER_FILE=/usr/share/nginx/html/specification.yml
     volumes:
-      - /api-specification/src/main/resources/open-api/specification.yml
+      - /app/src/main/openapi/openapi.yml
     ports:
       - "80:8080"
+  pg:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: pg-user
+      POSTGRES_PASSWORD: pg-pwd
+      POSTGRES_DB: local-db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pg@admin.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    depends_on:
+      - pg
+
+volumes:
+  pgdata:
+  pgadmin_data:

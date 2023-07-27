@@ -37,7 +37,9 @@ make run
   - Reason: This manager support us to download, configure and change different Java SDKs easily using CLI
 - Java SDK: [Eclipse Adoptium Temurin](https://adoptium.net/) (installed by make install)
   - Reason: Open-source SDK for personal and enterprise development
-    
+- Library to improve Java development: [Lombok](https://projectlombok.org/)
+  - Reason: To not spend time coding getters, setters, builders and constructors 
+
 ### Core Tools and Frameworks
 - Microservice framework: [Quarkus](https://quarkus.io/)
   - Reason: Faster way to develop a faster and reactive application based in market standards  
@@ -46,6 +48,11 @@ make run
 
 ### Development
 - RESTful Web service framework: [RESTEasy reactive](https://jakarta.ee/specifications/restful-ws/3.1/jakarta-restful-ws-spec-3.1.html) for Quarkus (manage by Maven)
+
+### Database
+- RDBMS: [PostgreSQL](https://www.postgresql.org/) as Docker
+- RDBMS Console: [PGAdmin](https://www.pgadmin.org/) as Docker
+- Reactive RDBMS client: [Quarkus PostgreSQL reactive](https://quarkus.io/extensions/io.quarkus/quarkus-reactive-pg-client)
 
 ### Tests
 - Test framework: [Junit5](https://junit.org/junit5/) for Quarkus (manage by Maven)
@@ -69,11 +76,9 @@ make run
 ## Roadmap
 
 ### Version 0.0.1
-- Add lombok
-- Add reactive JPA with PostgreSQL
 - Add liquibase
-- Create simple CRUD as example
-- Define structure standard for project
+- Create simple CRUD as example (doing)
+- Define structure standard for project (DDD with Hexagonal)
 - Define type of unit tests
 - add code coverage
 - Standard readme
