@@ -1,13 +1,14 @@
 package br.com.lorival;
 
+import static jakarta.ws.rs.core.Response.Status.CREATED;
+
 import br.com.lorival.tasks.repositories.UserRepository;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
-import java.util.List;
+import jakarta.ws.rs.core.Response;
 import org.openapi.quarkus.openapi_yml.api.DefaultApi;
 import org.openapi.quarkus.openapi_yml.model.TaskRequest;
-import org.openapi.quarkus.openapi_yml.model.TaskResponse;
 
 public class TasksResource implements DefaultApi {
 
@@ -15,7 +16,7 @@ public class TasksResource implements DefaultApi {
   @Inject private TaskMapper mapper;
 
   @Override
-  public Uni<List<TaskResponse>> tasksGet() {
+  public Uni<Response> tasksGet() {
     return repository
         .findAll()
         .onItem()
@@ -23,11 +24,14 @@ public class TasksResource implements DefaultApi {
         .onItem()
         .transform(entity -> mapper.toResponse(entity))
         .collect()
-        .asList();
+        .asList()
+        .map(list -> Response.ok(list).build());
   }
 
   @Override
-  public Uni<TaskResponse> tasksPost(TaskRequest taskInput) {
-    return repository.save(mapper.toTask(taskInput)).map(task -> mapper.toResponse(task));
+  public Uni<Response> tasksPost(TaskRequest taskInput) {
+    return repository
+        .save(mapper.toTask(taskInput))
+        .map(task -> Response.status(CREATED).entity(mapper.toResponse(task)).build());
   }
 }

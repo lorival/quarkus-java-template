@@ -19,5 +19,5 @@ public class Task {
   @Id @GeneratedValue private Long id;
   @NonNull String detail;
   LocalDateTime createdAt = LocalDateTime.now();
-  Boolean done = false;
+  boolean done = false;
 }

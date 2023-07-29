@@ -53,6 +53,7 @@ components:
       properties:
         id:
           type: integer
+          format: int64
         detail:
           type: string
         createdAt:
