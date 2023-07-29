@@ -17,7 +17,7 @@
     </dependency>
     <dependency>
       <groupId>br.com.lorival</groupId>
-      <artifactId>infrastructure</artifactId>
+      <artifactId>pgsql_repository_adapter</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

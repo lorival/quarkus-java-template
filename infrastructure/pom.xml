@@ -6,24 +6,11 @@
     <artifactId>quarkus-java-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+  <packaging>pom</packaging>
   <groupId>br.com.lorival</groupId>
   <artifactId>infrastructure</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-    <dependency>
-      <groupId>br.com.lorival</groupId>
-      <artifactId>domain</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-    <!-- Hibernate Reactive dependency -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-reactive-panache</artifactId>
-    </dependency>
-    <!-- Reactive SQL client for PostgreSQL -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-reactive-pg-client</artifactId>
-    </dependency>
-  </dependencies>
+  <modules>
+    <module>pgsql_repository_adapter</module>
+  </modules>
 </project>
