@@ -8,9 +8,9 @@
   </parent>
   <packaging>pom</packaging>
   <groupId>br.com.lorival</groupId>
-  <artifactId>infrastructure</artifactId>
+  <artifactId>launcher</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
-    <module>quarkus_pgsql_repository_adapter</module>
+    <module>quarkus_launcher</module>
   </modules>
 </project>

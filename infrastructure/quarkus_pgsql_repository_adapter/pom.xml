@@ -7,7 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>br.com.lorival</groupId>
-  <artifactId>pgsql_repository_adapter</artifactId>
+  <artifactId>quarkus_pgsql_repository_adapter</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
     <dependency>
