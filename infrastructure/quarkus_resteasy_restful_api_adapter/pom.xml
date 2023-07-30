@@ -42,16 +42,6 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.rest-assured</groupId>
-      <artifactId>rest-assured</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-h2</artifactId>
       <scope>test</scope>
     </dependency>
@@ -71,6 +61,7 @@
           </execution>
         </executions>
       </plugin>
+      <!--change project to consider the generated-sources directory as source code-->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
@@ -103,7 +94,7 @@
               <outputDirectory>${project.build.directory}/classes/META-INF</outputDirectory>
               <resources>
                 <resource>
-                  <directory>${project.basedir}/src/main/openapi</directory>
+                  <directory>${project.parent.parent.basedir}/app/src/main/api/http-api</directory>
                   <includes>
                     <include>openapi.yml</include>
                   </includes>

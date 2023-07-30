@@ -19,7 +19,7 @@ public class TaskResource implements DefaultApi {
   @Override
   public Uni<Response> tasksGet() {
     return controller
-        .getTasks()
+        .get()
         .onItem()
         .transformToMulti(list -> Multi.createFrom().iterable(list))
         .onItem()
@@ -32,7 +32,7 @@ public class TaskResource implements DefaultApi {
   @Override
   public Uni<Response> tasksPost(TaskRequest taskInput) {
     return controller
-        .createATask(taskInput.getDetail())
+        .create(taskInput.getDetail())
         .map(task -> Response.status(CREATED).entity(mapper.toResponse(task)).build());
   }
 }

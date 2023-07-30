@@ -17,12 +17,12 @@ public class TaskControllerImpl implements TaskController {
   }
 
   @Override
-  public Uni<List<Task>> getTasks() {
+  public Uni<List<Task>> get() {
     return repository.findAll();
   }
 
   @Override
-  public Uni<Task> createATask(String taskDetail) {
+  public Uni<Task> create(String taskDetail) {
     return repository.save(new Task(taskDetail));
   }
 }

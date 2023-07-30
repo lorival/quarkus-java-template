@@ -5,7 +5,7 @@ import io.smallrye.mutiny.Uni;
 import java.util.List;
 
 public interface TaskController {
-  Uni<List<Task>> getTasks();
+  Uni<List<Task>> get();
 
-  Uni<Task> createATask(String taskDetail);
+  Uni<Task> create(String taskDetail);
 }
