@@ -3,16 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>br.com.lorival</groupId>
-    <artifactId>quarkus-java-template</artifactId>
+    <artifactId>infrastructure</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <packaging>pom</packaging>
   <groupId>br.com.lorival</groupId>
-  <artifactId>infrastructure</artifactId>
+  <artifactId>quarkus_app_dependency_injection_adapter</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <modules>
-    <module>quarkus_pgsql_repository_adapter</module>
-    <module>quarkus_resteasy_restful_api_adapter</module>
-    <module>quarkus_app_dependency_injection_adapter</module>
-  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>br.com.lorival</groupId>
+      <artifactId>app</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 </project>

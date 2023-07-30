@@ -1,9 +1,8 @@
-package br.com.lorival;
+package br.com.lorival.mappers;
 
 import br.com.lorival.tasks.entities.Task;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.time.ZoneOffset;
-import org.openapi.quarkus.openapi_yml.model.TaskRequest;
 import org.openapi.quarkus.openapi_yml.model.TaskResponse;
 
 @ApplicationScoped
@@ -16,9 +15,5 @@ public class TaskMapper {
     task.setCreatedAt(entity.getCreatedAt().atOffset(ZoneOffset.UTC));
     task.setDone(entity.isDone());
     return task;
-  }
-
-  public Task toTask(TaskRequest entity) {
-    return new Task(entity.getDetail());
   }
 }

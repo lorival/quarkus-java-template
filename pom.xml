@@ -7,8 +7,9 @@
   <packaging>pom</packaging>
   <modules>
     <module>domain</module>
-    <module>infrastructure</module>
     <module>app</module>
+    <module>infrastructure</module>
+    <module>launcher</module>
   </modules>
   <properties>
     <compiler-plugin.version>3.11.0</compiler-plugin.version>

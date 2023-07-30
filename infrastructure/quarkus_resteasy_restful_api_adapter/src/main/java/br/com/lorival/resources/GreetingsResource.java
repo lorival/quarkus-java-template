@@ -1,10 +1,10 @@
-package br.com.lorival;
+package br.com.lorival.resources;
 
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.core.Response;
 import org.openapi.quarkus.openapi_yml.api.GreetingsApi;
 
-public class GreetingResource implements GreetingsApi {
+public class GreetingsResource implements GreetingsApi {
 
   @Override
   public Uni<Response> getGreetingMessage() {
