@@ -21,5 +21,10 @@
       <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>br.com.lorival</groupId>
+      <artifactId>quarkus_pgsql_repository_adapter</artifactId>
+      <version>${project.version}</version>
+    </dependency>
   </dependencies>
 </project>

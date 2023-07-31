@@ -9,25 +9,4 @@
   <groupId>br.com.lorival</groupId>
   <artifactId>domain</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-    <dependency>
-      <groupId>jakarta.persistence</groupId>
-      <artifactId>jakarta.persistence-api</artifactId>
-      <version>3.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>io.smallrye.reactive</groupId>
-      <artifactId>mutiny</artifactId>
-      <version>2.3.1</version>
-    </dependency>
-  </dependencies>
-  <build>
-    <plugins>
-      <!-- Jandex plugin needed to use context beans in other modules -->
-      <plugin>
-        <groupId>io.smallrye</groupId>
-        <artifactId>jandex-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 </project>

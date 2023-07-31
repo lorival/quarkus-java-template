@@ -4,17 +4,13 @@ import br.com.lorival.app.controllers.TaskController;
 import br.com.lorival.tasks.entities.Task;
 import br.com.lorival.tasks.repositories.UserRepository;
 import io.smallrye.mutiny.Uni;
-import jakarta.inject.Inject;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class TaskControllerImpl implements TaskController {
 
   private final UserRepository repository;
-
-  @Inject
-  public TaskControllerImpl(UserRepository repository) {
-    this.repository = repository;
-  }
 
   @Override
   public Uni<List<Task>> get() {
