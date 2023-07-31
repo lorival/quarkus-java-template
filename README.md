@@ -42,26 +42,37 @@ make run
 
 ### Core Tools and Frameworks
 - Microservice framework: [Quarkus](https://quarkus.io/)
-  - Reason: Faster way to develop a faster and reactive application based in market standards  
+  - Reason: Faster way to develop a reactive application based in market standards  
 - Dependency management tool: [Maven](https://maven.apache.org/) (Portable embeeded in this project)
+  - Reason: Most used dependency management tool in the market
 - Reactive toolkit: [Vert.x](https://vertx.io/) (Quarkus integrated)
+  - Reason: Easy to learn, comprehensive end-to-end reactive toolkit already integrated with Quarkus 
 
 ### Development
 - RESTful Web service framework: [RESTEasy reactive](https://jakarta.ee/specifications/restful-ws/3.1/jakarta-restful-ws-spec-3.1.html) for Quarkus (manage by Maven)
+  - Reason: It is an implementation of the Eclipse Foundation specification for RESTful WEB application for Java.
 
 ### Database
 - RDBMS: [PostgreSQL](https://www.postgresql.org/) as Docker
+  - Reason: Powerful database used in the market
 - RDBMS Console: [PGAdmin](https://www.pgadmin.org/) as Docker
+  - Reason: Default administration tool for PostgreSQL
 - Reactive RDBMS client: [Quarkus PostgreSQL reactive](https://quarkus.io/extensions/io.quarkus/quarkus-reactive-pg-client)
+  - Reason: To be possible build a reactive connection with PostgreSQL
 
 ### Tests
 - Test framework: [Junit5](https://junit.org/junit5/) for Quarkus (manage by Maven)
+  - Reason: The open-source framework for write tests for Java
 - Tool to test REST endpoints: [RESTAssured](https://rest-assured.io/) (manage by Maven)
+  - Reason: Powerful testing and validation library to test REST APIs in a fluent and simple way
 
 ### Conventions
 - Java code formatting: [Google Java style](https://google.github.io/styleguide/javaguide.html) guaranteed by [Spotify format maven plugin](https://github.com/spotify/fmt-maven-plugin)
 - XML formatting: guaranteed by [XML format maven plugin](https://acegi.github.io/xml-format-maven-plugin/)
 - Git commit style: [Conventional Commits](https://www.conventionalcommits.org/)
+- Project layers standard: [Ports and adapter structure](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
+- Domain modeling standard: [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) 
+- Unit test type: [Sociable tests](https://martinfowler.com/bliki/UnitTest.html)
 
 ### Best practices
 - Project modularization: [Maven submodules](https://maven.apache.org/guides/mini/guide-multiple-modules.html)
@@ -75,43 +86,31 @@ make run
 
 ## Roadmap
 
-### Version 0.0.1
+### Current step - project
 - Add liquibase
-- Create simple CRUD as example (doing)
-- Define structure standard for project (DDD with Hexagonal)
-- Define type of unit tests
-- add code coverage
 - Standard readme
+- Have one profile per each type of test
+- Add visual code evolution as DNA
+- Add commit rule checker
 - Add archunit
 - REST third level of maturity
+- Implement metrics
 
-### Version 1.0.0
+### Next step - tests
+- Add acceptance criteria tests
+- Add Load and performance tests
+
+### Next step - pipeline
 - Configure pipeline for Gitlab
-- Add OWASP dependency checker
+- add code coverage
 - Auto-Identify dependencies to update
 - Auto-identify version to increase
 
-### Version 2.0.0
-- Add acceptance criteria tests
-- Add Load and performance tests
-- Have one profile per each type of test
-- Add visual code evolution as DNA
-
-### Version 3.0.0
-- Add Sast tools
-- Add cache
-- Add commit rule checker
-- Create smoke tests
-
-### Future
-- Use distroless for image
-- Add tool for profiling
+### Next step - security
 - Add Dast tools
-- Implement a client with circuitbreaker for another service
-- Implement monitoring
+- Add Sast tools (OWASP dependency checker)
+- Use distroless for image
 
-## Next repositories as examples
-- Implement authentication using oauth
-- Implement RabbitMQ
-- Implement Kafka
-- Implement RPC
+### Final step - deploy
+- Implement monitoring 
+- Create smoke tests
