@@ -20,14 +20,10 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-reactive-panache</artifactId>
     </dependency>
-    <!-- Reactive SQL client for PostgreSQL -->
+    <!-- SQL client Reactive for PostgreSQL -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-reactive-pg-client</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-hibernate-validator</artifactId>
     </dependency>
   </dependencies>
 </project>

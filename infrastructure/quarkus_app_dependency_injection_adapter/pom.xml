@@ -19,8 +19,8 @@
       <groupId>jakarta.enterprise</groupId>
       <artifactId>jakarta.enterprise.cdi-api</artifactId>
       <version>4.0.1</version>
-      <scope>provided</scope>
     </dependency>
+    <!-- TODO remove this dependency -->
     <dependency>
       <groupId>br.com.lorival</groupId>
       <artifactId>quarkus_pgsql_repository_adapter</artifactId>
