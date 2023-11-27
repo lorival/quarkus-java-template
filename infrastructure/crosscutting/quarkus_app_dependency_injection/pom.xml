@@ -3,15 +3,26 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>br.com.lorival</groupId>
-    <artifactId>reactive-java-template</artifactId>
+    <artifactId>crosscutting</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>app</artifactId>
+  <artifactId>quarkus_app_dependency_injection</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
     <dependency>
       <groupId>br.com.lorival</groupId>
-      <artifactId>domain</artifactId>
+      <artifactId>app</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.enterprise</groupId>
+      <artifactId>jakarta.enterprise.cdi-api</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <!-- TODO remove this dependency -->
+    <dependency>
+      <groupId>br.com.lorival</groupId>
+      <artifactId>quarkus_pgsql_repository_adapter</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

@@ -3,16 +3,26 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>br.com.lorival</groupId>
-    <artifactId>reactive-java-template</artifactId>
+    <artifactId>drive</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>app</artifactId>
+  <artifactId>quarkus_pgsql_repository_adapter</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
     <dependency>
       <groupId>br.com.lorival</groupId>
       <artifactId>domain</artifactId>
       <version>${project.version}</version>
+    </dependency>
+    <!-- Hibernate Reactive dependency -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-reactive-panache</artifactId>
+    </dependency>
+    <!-- SQL client Reactive for PostgreSQL -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-reactive-pg-client</artifactId>
     </dependency>
   </dependencies>
 </project>

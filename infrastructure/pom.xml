@@ -7,12 +7,11 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <packaging>pom</packaging>
-  <groupId>br.com.lorival</groupId>
   <artifactId>infrastructure</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
-    <module>quarkus_pgsql_repository_adapter</module>
-    <module>quarkus_resteasy_restful_api_adapter</module>
-    <module>quarkus_app_dependency_injection_adapter</module>
+    <module>crosscutting</module>
+    <module>adapters</module>
+    <module>launcher</module>
   </modules>
 </project>

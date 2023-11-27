@@ -6,7 +6,6 @@
     <artifactId>reactive-java-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>br.com.lorival</groupId>
   <artifactId>domain</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 </project>

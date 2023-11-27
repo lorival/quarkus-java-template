@@ -6,13 +6,10 @@
     <artifactId>reactive-java-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>app</artifactId>
+  <packaging>pom</packaging>
+  <artifactId>driving</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-    <dependency>
-      <groupId>br.com.lorival</groupId>
-      <artifactId>domain</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
+  <modules>
+    <module>quarkus_resteasy_restful_api_adapter</module>
+  </modules>
 </project>

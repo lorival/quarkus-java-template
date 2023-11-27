@@ -9,7 +9,6 @@
     <module>domain</module>
     <module>app</module>
     <module>infrastructure</module>
-    <module>launcher</module>
   </modules>
   <properties>
     <compiler-plugin.version>3.11.0</compiler-plugin.version>
@@ -50,6 +49,7 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.28</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>io.smallrye.reactive</groupId>

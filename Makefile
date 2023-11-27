@@ -20,7 +20,7 @@ run: build
 	open http://localhost:5050 # pgadmin
 	open http://localhost:8080 # application
 	open http://localhost:8080/q/dev/ # quarkus for developers
-	mvn -f launcher/quarkus_launcher quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
+	mvn -f infrastructure/launcher/quarkus_launcher quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
 
 .PHONY: docker # = Build docker image
 docker:
