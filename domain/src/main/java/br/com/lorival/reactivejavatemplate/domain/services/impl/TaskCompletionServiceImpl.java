@@ -1,15 +1,15 @@
 package br.com.lorival.reactivejavatemplate.domain.services.impl;
 
-import br.com.lorival.reactivejavatemplate.domain.repositories.UserRepository;
+import br.com.lorival.reactivejavatemplate.domain.repositories.TaskRepository;
 import br.com.lorival.reactivejavatemplate.domain.services.TaskCompletionService;
 import br.com.lorival.reactivejavatemplate.domain.services.exceptions.TaskNotExistException;
 import io.smallrye.mutiny.Uni;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class TaskCompletionServiceImpl implements TaskCompletionService {
+class TaskCompletionServiceImpl implements TaskCompletionService {
 
-  private final UserRepository userRepository;
+  private final TaskRepository userRepository;
 
   @Override
   public Uni<Void> completeTaskByID(Long taskID) {

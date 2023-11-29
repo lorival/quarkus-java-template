@@ -16,7 +16,7 @@
     </dependency>
     <dependency>
       <groupId>br.com.lorival</groupId>
-      <artifactId>quarkus_app_dependency_injection</artifactId>
+      <artifactId>quarkus_dependency_injection</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

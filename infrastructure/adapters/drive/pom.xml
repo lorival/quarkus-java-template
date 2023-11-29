@@ -11,5 +11,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>quarkus_pgsql_repository_adapter</module>
+    <module>email_notification_adapter</module>
   </modules>
 </project>

@@ -39,6 +39,7 @@ make run
   - Reason: Open-source SDK for personal and enterprise development
 - Library to improve Java development: [Lombok](https://projectlombok.org/)
   - Reason: To not spend time coding getters, setters, builders and constructors 
+- Model Mapper ???
 
 ### Core Tools and Frameworks
 - Microservice framework: [Quarkus](https://quarkus.io/)

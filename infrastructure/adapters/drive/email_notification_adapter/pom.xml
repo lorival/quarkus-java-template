@@ -3,13 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>br.com.lorival</groupId>
-    <artifactId>infrastructure</artifactId>
+    <artifactId>drive</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <packaging>pom</packaging>
-  <artifactId>crosscutting</artifactId>
+  <artifactId>email_notification_adapter</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <modules>
-    <module>quarkus_dependency_injection</module>
-  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>br.com.lorival</groupId>
+      <artifactId>domain</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 </project>
