@@ -14,5 +14,6 @@ public class TaskTable {
   @Id @GeneratedValue private Long id;
   private String detail;
   private LocalDateTime createdAt;
-  private boolean done;
+  private boolean completed;
+  private LocalDateTime completedAt;
 }

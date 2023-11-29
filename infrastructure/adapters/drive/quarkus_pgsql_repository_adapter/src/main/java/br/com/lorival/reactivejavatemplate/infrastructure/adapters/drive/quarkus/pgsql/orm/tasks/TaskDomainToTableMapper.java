@@ -11,15 +11,17 @@ public class TaskDomainToTableMapper {
     task.setId(entity.getId());
     task.setDetail(entity.getDetail());
     task.setCreatedAt(entity.getCreatedAt());
-    task.setDone(entity.isDone());
+    task.setCompleted(entity.isCompleted());
+    task.setCompletedAt(entity.getCompletedAt());
     return task;
   }
 
-  public Task toDomain(TaskTable entity) {
-    var task = new Task(entity.getDetail());
-    task.setId(entity.getId());
-    task.setCreatedAt(entity.getCreatedAt());
-    task.setDone(entity.isDone());
+  public Task toDomain(TaskTable table) {
+    var task = new Task(table.getDetail());
+    task.setId(table.getId());
+    task.setCreatedAt(table.getCreatedAt());
+    task.setCompleted(table.isCompleted());
+    task.setCompletedAt(table.getCompletedAt());
     return task;
   }
 }

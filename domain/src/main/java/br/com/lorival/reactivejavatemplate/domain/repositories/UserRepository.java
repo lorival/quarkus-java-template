@@ -6,7 +6,11 @@ import java.util.List;
 
 public interface UserRepository {
 
-  Uni<Task> save(Task task);
+  Uni<Task> insert(Task task);
+
+  Uni<Void> update(Task task);
 
   Uni<List<Task>> findAll();
+
+  Uni<Task> findByID(Long ID);
 }

@@ -46,5 +46,6 @@ format:
 
 .PHONY: api-editor # = Run Swagger editor to support the development of openAPI specification files
 api-editor:
+	docker-compose down api-editor
 	docker-compose up -d api-editor
 	open http://localhost

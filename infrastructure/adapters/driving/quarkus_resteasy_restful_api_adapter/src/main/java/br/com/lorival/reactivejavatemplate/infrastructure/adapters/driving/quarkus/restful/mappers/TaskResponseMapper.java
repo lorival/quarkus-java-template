@@ -13,7 +13,7 @@ public class TaskResponseMapper {
     task.setId(entity.getId());
     task.setDetail(entity.getDetail());
     task.setCreatedAt(entity.getCreatedAt().atOffset(ZoneOffset.UTC));
-    task.setDone(entity.isDone());
+    task.setDone(entity.isCompleted());
     return task;
   }
 }

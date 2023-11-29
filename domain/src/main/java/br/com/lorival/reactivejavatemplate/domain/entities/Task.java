@@ -9,5 +9,11 @@ public class Task {
   private Long id;
   @NonNull private String detail;
   private LocalDateTime createdAt = LocalDateTime.now();
-  private boolean done = false;
+  private boolean completed = false;
+  private LocalDateTime completedAt;
+
+  public void complete() {
+    this.completed = true;
+    this.completedAt = LocalDateTime.now();
+  }
 }

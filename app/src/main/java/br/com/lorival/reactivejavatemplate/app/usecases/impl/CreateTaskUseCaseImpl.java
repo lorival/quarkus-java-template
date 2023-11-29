@@ -13,6 +13,6 @@ public class CreateTaskUseCaseImpl implements CreateTaskUseCase {
 
   @Override
   public Uni<Task> create(String taskDetail) {
-    return repository.save(new Task(taskDetail));
+    return repository.insert(new Task(taskDetail));
   }
 }

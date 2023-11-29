@@ -21,9 +21,24 @@ public class TaskRepositoryAdapter implements UserRepository {
 
   @Override
   @WithSession
-  public Uni<Task> save(Task task) {
+  public Uni<Task> insert(Task task) {
     return Panache.withTransaction(() -> panacheRepository.persist(mapper.toTable(task)))
         .map(mapper::toDomain);
+  }
+
+  @Override
+  @WithSession
+  public Uni<Void> update(Task task) {
+    return Panache.withTransaction(
+            () ->
+                panacheRepository.update(
+                    "UPDATE TaskTable t SET t.detail = ?1, t.completed = ?2, t.completedAt = ?3 WHERE t.id = ?4",
+                    task.getDetail(),
+                    task.isCompleted(),
+                    task.getCompletedAt(),
+                    task.getId()))
+        .onItem()
+        .transformToUni(updatedRows -> Uni.createFrom().voidItem());
   }
 
   @Override
@@ -37,5 +52,18 @@ public class TaskRepositoryAdapter implements UserRepository {
         .transform(mapper::toDomain)
         .collect()
         .asList();
+  }
+
+  @Override
+  @WithSession
+  public Uni<Task> findByID(Long ID) {
+    return panacheRepository
+        .findById(ID)
+        .onItem()
+        .ifNotNull()
+        .transform(mapper::toDomain)
+        .onItem()
+        .ifNull()
+        .switchTo(Uni.createFrom().nullItem());
   }
 }

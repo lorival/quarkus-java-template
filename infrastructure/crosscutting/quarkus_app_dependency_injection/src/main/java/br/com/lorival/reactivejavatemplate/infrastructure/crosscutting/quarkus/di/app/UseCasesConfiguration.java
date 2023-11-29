@@ -1,12 +1,15 @@
 package br.com.lorival.reactivejavatemplate.infrastructure.crosscutting.quarkus.di.app;
 
 import br.com.lorival.reactivejavatemplate.app.usecases.AppGreetingsUseCase;
+import br.com.lorival.reactivejavatemplate.app.usecases.CompleteTaskUseCase;
 import br.com.lorival.reactivejavatemplate.app.usecases.CreateTaskUseCase;
 import br.com.lorival.reactivejavatemplate.app.usecases.GetTasksUseCase;
 import br.com.lorival.reactivejavatemplate.app.usecases.impl.AppGreetingsUseCaseImpl;
+import br.com.lorival.reactivejavatemplate.app.usecases.impl.CompleteTaskUseCaseImpl;
 import br.com.lorival.reactivejavatemplate.app.usecases.impl.CreateTaskUseCaseImpl;
 import br.com.lorival.reactivejavatemplate.app.usecases.impl.GetTasksUseCaseImpl;
 import br.com.lorival.reactivejavatemplate.domain.repositories.UserRepository;
+import br.com.lorival.reactivejavatemplate.domain.services.TaskCompletionService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 
@@ -15,6 +18,11 @@ public class UseCasesConfiguration {
   @Produces
   public CreateTaskUseCase createTaskUseCase(UserRepository repository) {
     return new CreateTaskUseCaseImpl(repository);
+  }
+
+  @Produces
+  public CompleteTaskUseCase createCompleteTaskUseCase(TaskCompletionService service) {
+    return new CompleteTaskUseCaseImpl(service);
   }
 
   @Produces

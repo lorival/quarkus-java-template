@@ -4,12 +4,12 @@ services:
     container_name: api-editor
     image: swaggerapi/swagger-editor
     platform: linux/amd64
-    environment:
-      - SWAGGER_FILE=/usr/share/nginx/html/specification.yml
     volumes:
-      - /app/src/main/openapi/openapi.yml
+      - ./app/src/main/api/http-api/openapi.yml:/app/src/main/api/http-api/openapi.yml
     ports:
       - "80:8080"
+    environment:
+      - SWAGGER_FILE=/app/src/main/api/http-api/openapi.yml
   pg:
     image: postgres:latest
     container_name: postgres_container

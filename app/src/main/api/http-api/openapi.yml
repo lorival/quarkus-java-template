@@ -6,6 +6,7 @@ paths:
   /greeting:
     get:
       summary: Get a greeting message
+      description: This endpoint retrieves a simple greeting message.
       operationId: getGreetingMessage
       responses:
         '200':
@@ -14,11 +15,14 @@ paths:
             text/plain:
               schema:
                 type: string
+        default:
+          description: Unexpected error
       tags:
         - Greetings
   /tasks:
     post:
       summary: Create new task
+      description: Create a new task with the given details.
       requestBody:
         required: true
         content:
@@ -27,24 +31,61 @@ paths:
               $ref: '#/components/schemas/TaskRequest'
       responses:
         '201':
-          description: Task created with success
+          description: Task created successfully
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/TaskResponse'
         '400':
           description: Invalid request
+        default:
+          description: Unexpected error
+      tags:
+        - Tasks
     get:
       summary: List all tasks
+      description: Retrieves a list of all tasks.
       responses:
         '200':
-          description: Tasks
+          description: A list of tasks
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/TaskResponse'
+        default:
+          description: Unexpected error
+      tags:
+        - Tasks
+  /tasks/{taskID}:
+    patch:
+      summary: Mark a task as completed
+      description: Updates a specific task by marking it as completed.
+      operationId: updateTaskAsCompleted
+      parameters:
+        - name: taskID
+          in: path
+          required: true
+          description: The ID of the task to be updated.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Task updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+        '404':
+          description: Task not found
+        '400':
+          description: Invalid request
+        default:
+          description: Unexpected error
+      tags:
+        - Tasks
 
 components:
   schemas:
@@ -61,6 +102,7 @@ components:
           format: date-time
         done:
           type: boolean
+      description: Schema for task response data.
     TaskRequest:
       type: object
       properties:
@@ -68,3 +110,4 @@ components:
           type: string
       required:
         - detail
+      description: Schema for creating a new task.
