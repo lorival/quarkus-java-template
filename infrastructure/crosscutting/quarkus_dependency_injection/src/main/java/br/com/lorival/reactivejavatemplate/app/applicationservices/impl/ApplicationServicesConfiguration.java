@@ -12,6 +12,7 @@ import jakarta.enterprise.inject.Produces;
 
 @ApplicationScoped
 public class ApplicationServicesConfiguration {
+
   @Produces
   public CreateTaskApplicationService createTaskUseCase(
       TaskRepository repository, TaskCompletionNotificationService notificationService) {

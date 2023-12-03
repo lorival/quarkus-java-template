@@ -7,7 +7,7 @@ import jakarta.enterprise.inject.Produces;
 @ApplicationScoped
 public class EmailNotificationConfiguration {
   @Produces
-  public TaskCompletionNotificationService createTaskCompleteService() {
+  public TaskCompletionNotificationService createTaskCompletionNotificationService() {
     return new TaskCompletionNotificationServiceImpl();
   }
 }

@@ -11,5 +11,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>quarkus_launcher</module>
+    <module>spring_launcher</module>
   </modules>
 </project>

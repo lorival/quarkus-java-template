@@ -84,34 +84,20 @@ make run
   - after changes download the file and replace the current one in the repository
   - run ``$ make build`` to generate the Java interfaces to be implemented in app module
 - Make REST API available via Swagger-ui only for development environment and never for production
+- Liquibase ???
 
 ## Roadmap
 
 ### Current step - project
-- Add liquibase
 - Standard readme
-- Have one profile per each type of test
 - Add visual code evolution as DNA
 - Add commit rule checker
 - Add archunit
-- REST third level of maturity
 - Implement metrics
+- add code coverage
 
 ### Next step - tests
+- Implement tests with coverage validation
+- Have one profile per each type of test
 - Add acceptance criteria tests
 - Add Load and performance tests
-
-### Next step - pipeline
-- Configure pipeline for Gitlab
-- add code coverage
-- Auto-Identify dependencies to update
-- Auto-identify version to increase
-
-### Next step - security
-- Add Dast tools
-- Add Sast tools (OWASP dependency checker)
-- Use distroless for image
-
-### Final step - deploy
-- Implement monitoring 
-- Create smoke tests

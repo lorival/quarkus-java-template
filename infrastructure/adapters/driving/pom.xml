@@ -3,13 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>br.com.lorival</groupId>
-    <artifactId>reactive-java-template</artifactId>
+    <artifactId>adapters</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <packaging>pom</packaging>
   <artifactId>driving</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
-    <module>quarkus_resteasy_restful_api_adapter</module>
+    <module>quarkus_restful_api_adapter</module>
+    <module>spring_restful_api_adapter</module>
   </modules>
 </project>

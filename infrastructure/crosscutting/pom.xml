@@ -11,5 +11,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>quarkus_dependency_injection</module>
+    <module>spring_dependency_injection</module>
   </modules>
 </project>

@@ -1,19 +1,28 @@
 package br.com.lorival.reactivejavatemplate.infrastructure.adapters.drive.quarkus.pgsql.repositories.tasks;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "table_name", schema = "myapp")
+@Table(name = "tasks")
 public class TaskTable {
-  @Id @GeneratedValue private Long id;
+  @Id
+  @SequenceGenerator(
+      name = "tasks_sequence_generator",
+      sequenceName = "tasks_sequence",
+      allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tasks_sequence_generator")
+  private Long id;
+
   private String detail;
+
+  @Column(name = "created_at")
   private LocalDateTime createdAt;
+
   private boolean completed;
+
+  @Column(name = "completed_at")
   private LocalDateTime completedAt;
 }

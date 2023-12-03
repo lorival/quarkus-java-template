@@ -1,0 +1,35 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 01-create-task-table
+      author: lorival
+      changes:
+        - createTable:
+            schema: public
+            tableName: tasks
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: detail
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: completed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: completed_at
+                  type: timestamp

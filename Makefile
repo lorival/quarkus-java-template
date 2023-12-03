@@ -14,13 +14,26 @@ install:
 build:
 	mvn clean install -DskipTests
 
-.PHONY: run # = Run the application in dev mode (press 'q' to quit)
-run: build
+.PHONY: runq # = Run the quarkus application in dev mode (press 'q' to quit)
+runq: build
 	docker-compose up -d pg pgadmin
+	mvn -f infrastructure/adapters/drive/quarkus_pgsql_repository_adapter liquibase:update
 	open http://localhost:5050 # pgadmin
-	open http://localhost:8080 # application
+	open http://localhost:8080/q/swagger-ui/ # swagger-ui
 	open http://localhost:8080/q/dev/ # quarkus for developers
 	mvn -f infrastructure/launcher/quarkus_launcher quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
+
+.PHONY: runs # = Run the spring application in dev mode (press 'ctrl + c' to quit)
+runs: build
+	docker-compose up -d pg pgadmin
+	open http://localhost:5050 # pgadmin
+	open http://localhost:8080/swagger-ui/index.html # swagger-ui
+	mvn -f infrastructure/launcher/spring_launcher spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+
+.PHONY: debugs # = Run the spring application in dev mode (press 'ctrl + c' to quit)
+debugs:
+	mvn -f infrastructure/launcher/spring_launcher spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+
 
 .PHONY: docker # = Build docker image
 docker:
