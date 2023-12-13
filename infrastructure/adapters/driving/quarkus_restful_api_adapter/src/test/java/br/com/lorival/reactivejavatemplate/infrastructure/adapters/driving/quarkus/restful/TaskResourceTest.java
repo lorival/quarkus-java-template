@@ -7,15 +7,15 @@ import static org.hamcrest.Matchers.*;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
-import org.openapi.quarkus.openapi_yml.model.TaskRequest;
+import org.openapi.quarkus.openapi_yml.model.CreatePersonRequest;
 
 @QuarkusTest
 public class TaskResourceTest {
 
   @Test
   public void testCreateTaskEndpoint() {
-    TaskRequest taskRequest = new TaskRequest();
-    taskRequest.setDetail("Test task");
+    CreatePersonRequest taskRequest = new CreatePersonRequest();
+    taskRequest.setName("Name");
 
     given()
         .contentType(ContentType.JSON)

@@ -3,7 +3,7 @@ package br.com.lorival.reactivejavatemplate.infrastructure.adapters.driving.quar
 import br.com.lorival.reactivejavatemplate.app.applicationservices.AppGreetingsApplicationService;
 import io.smallrye.mutiny.converters.uni.UniReactorConverters;
 import lombok.RequiredArgsConstructor;
-import org.openapi.spring.openapi_yml.api.GreetingApi;
+import org.openapi.spring.openapi_yml.api.HelloWorldApi;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
@@ -11,12 +11,12 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
-public class GreetingsResource implements GreetingApi {
+public class GreetingsResource implements HelloWorldApi {
 
   private final AppGreetingsApplicationService appGreetingsService;
 
   @Override
-  public Mono<ResponseEntity<String>> getGreetingMessage(ServerWebExchange exchange) {
+  public Mono<ResponseEntity<String>> helloWorldGet(ServerWebExchange exchange) {
     Mono<String> monoGreeting =
         appGreetingsService.getGreetingMessage().convert().with(UniReactorConverters.toMono());
     return monoGreeting.map(ResponseEntity::ok);

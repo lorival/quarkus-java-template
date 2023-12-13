@@ -12,6 +12,5 @@
   <modules>
     <module>quarkus_pgsql_repository_adapter</module>
     <module>spring_pgsql_repository_adapter</module>
-    <module>email_notification_adapter</module>
   </modules>
 </project>

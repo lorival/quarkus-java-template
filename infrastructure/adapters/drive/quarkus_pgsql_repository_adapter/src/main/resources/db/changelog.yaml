@@ -1,21 +1,21 @@
 databaseChangeLog:
 
   - changeSet:
-      id: 01-create-task-sequence
+      id: 01-create-person-sequence
       author: "lorival"
       changes:
         - createSequence:
-            sequenceName: "tasks_sequence"
+            sequenceName: "person_sequence"
             startValue: 1
             incrementBy: 1
             allocationSize: 1
 
   - changeSet:
-      id: 02-create-task-table
+      id: 02-create-person-table
       author: lorival
       changes:
         - createTable:
-            tableName: tasks
+            tableName: persons
             columns:
               - column:
                   name: id
@@ -25,7 +25,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: detail
+                  name: name
                   type: varchar(255)
                   constraints:
                     nullable: false
@@ -35,10 +35,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: completed
-                  type: boolean
+                  name: age
+                  type: int
                   constraints:
                     nullable: false
-              - column:
-                  name: completed_at
-                  type: timestamp

@@ -6,23 +6,20 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "tasks")
-public class TaskTable {
+@Table(name = "persons")
+public class PersonTable {
   @Id
   @SequenceGenerator(
-      name = "tasks_sequence_generator",
-      sequenceName = "tasks_sequence",
+      name = "person_sequence_generator",
+      sequenceName = "person_sequence",
       allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tasks_sequence_generator")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_sequence_generator")
   private Long id;
 
-  private String detail;
+  private String name;
 
   @Column(name = "created_at")
   private LocalDateTime createdAt;
 
-  private boolean completed;
-
-  @Column(name = "completed_at")
-  private LocalDateTime completedAt;
+  private int age;
 }

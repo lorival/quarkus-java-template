@@ -1,12 +1,10 @@
 package br.com.lorival.reactivejavatemplate.app.applicationservices.impl;
 
 import br.com.lorival.reactivejavatemplate.app.applicationservices.AppGreetingsApplicationService;
-import br.com.lorival.reactivejavatemplate.app.applicationservices.CompleteTaskApplicationService;
-import br.com.lorival.reactivejavatemplate.app.applicationservices.CreateTaskApplicationService;
-import br.com.lorival.reactivejavatemplate.app.applicationservices.GetTasksApplicationService;
-import br.com.lorival.reactivejavatemplate.domain.repositories.TaskRepository;
-import br.com.lorival.reactivejavatemplate.domain.services.TaskCompletionNotificationService;
-import br.com.lorival.reactivejavatemplate.domain.services.TaskCompletionService;
+import br.com.lorival.reactivejavatemplate.app.applicationservices.CreatePersonApplicationService;
+import br.com.lorival.reactivejavatemplate.app.applicationservices.GetPersonApplicationService;
+import br.com.lorival.reactivejavatemplate.app.applicationservices.UpdatePersonApplicationService;
+import br.com.lorival.reactivejavatemplate.domain.repositories.PersonRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 
@@ -14,19 +12,18 @@ import jakarta.enterprise.inject.Produces;
 public class ApplicationServicesConfiguration {
 
   @Produces
-  public CreateTaskApplicationService createTaskUseCase(
-      TaskRepository repository, TaskCompletionNotificationService notificationService) {
-    return new CreateTaskApplicationServiceImpl(repository, notificationService);
+  public CreatePersonApplicationService createTaskUseCase(PersonRepository repository) {
+    return new CreatePersonApplicationServiceImpl(repository);
   }
 
   @Produces
-  public CompleteTaskApplicationService createCompleteTaskUseCase(TaskCompletionService service) {
-    return new CompleteTaskApplicationServiceImpl(service);
+  public GetPersonApplicationService getTaskUseCase(PersonRepository repository) {
+    return new GetPersonApplicationServiceImpl(repository);
   }
 
   @Produces
-  public GetTasksApplicationService getTaskUseCase(TaskRepository repository) {
-    return new GetTasksApplicationServiceImpl(repository);
+  public UpdatePersonApplicationService updateTaskUseCase(PersonRepository repository) {
+    return new UpdatePersonApplicationServiceImpl(repository);
   }
 
   @Produces

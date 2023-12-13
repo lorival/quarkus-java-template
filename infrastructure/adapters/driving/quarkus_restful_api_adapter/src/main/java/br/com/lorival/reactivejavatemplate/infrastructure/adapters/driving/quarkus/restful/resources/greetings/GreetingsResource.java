@@ -4,16 +4,16 @@ import br.com.lorival.reactivejavatemplate.app.applicationservices.AppGreetingsA
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
-import org.openapi.quarkus.openapi_yml.api.GreetingsApi;
+import org.openapi.quarkus.openapi_yml.api.HelloWorldApi;
 
 @RequiredArgsConstructor
-public class GreetingsResource implements GreetingsApi {
+public class GreetingsResource implements HelloWorldApi {
 
-  private final AppGreetingsApplicationService appGreetingsUseCase;
+  private final AppGreetingsApplicationService appGreetingsService;
 
   @Override
-  public Uni<Response> getGreetingMessage() {
-    return appGreetingsUseCase
+  public Uni<Response> helloWorldGet() {
+    return appGreetingsService
         .getGreetingMessage()
         .onItem()
         .transform(value -> Response.ok(value).build());

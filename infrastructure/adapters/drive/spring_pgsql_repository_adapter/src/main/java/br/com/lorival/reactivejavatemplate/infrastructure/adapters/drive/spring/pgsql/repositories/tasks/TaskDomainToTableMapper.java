@@ -1,11 +1,11 @@
 package br.com.lorival.reactivejavatemplate.infrastructure.adapters.drive.spring.pgsql.repositories.tasks;
 
-import br.com.lorival.reactivejavatemplate.domain.entities.Task;
+import br.com.lorival.reactivejavatemplate.domain.entities.Person;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface TaskDomainToTableMapper {
-  TaskTable toTable(Task entity);
+  TaskTable toTable(Person entity);
 
-  Task toDomain(TaskTable table);
+  Person toDomain(TaskTable table);
 }

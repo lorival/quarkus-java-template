@@ -1,9 +1,10 @@
 package br.com.lorival.reactivejavatemplate.infrastructure.adapters.drive.quarkus.pgsql.repositories.tasks;
 
-import br.com.lorival.reactivejavatemplate.domain.entities.Task;
-import br.com.lorival.reactivejavatemplate.domain.repositories.TaskRepository;
+import br.com.lorival.reactivejavatemplate.domain.entities.Person;
+import br.com.lorival.reactivejavatemplate.domain.repositories.PersonRepository;
 import io.quarkus.hibernate.reactive.panache.Panache;
 import io.quarkus.hibernate.reactive.panache.common.WithSession;
+import io.quarkus.panache.common.Page;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -12,28 +13,27 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @ApplicationScoped
-public class TaskRepositoryImpl implements TaskRepository {
+public class PersonRepositoryImpl implements PersonRepository {
 
-  private final TaskPanacheRepository panacheRepository;
-  private final TaskDomainToTableMapper mapper;
+  private final PersonPanacheRepository panacheRepository;
+  private final PersonDomainToTableMapper mapper;
 
   @Override
   @WithSession
-  public Uni<Task> insert(Task task) {
+  public Uni<Person> insert(Person task) {
     return Panache.withTransaction(() -> panacheRepository.persist(mapper.toTable(task)))
         .map(mapper::toDomain);
   }
 
   @Override
   @WithSession
-  public Uni<Void> update(Task task) {
+  public Uni<Void> update(Person task) {
     return Panache.withTransaction(
             () ->
                 panacheRepository.update(
-                    "UPDATE TaskTable t SET t.detail = ?1, t.completed = ?2, t.completedAt = ?3 WHERE t.id = ?4",
-                    task.getDetail(),
-                    task.isCompleted(),
-                    task.getCompletedAt(),
+                    "UPDATE PersonTable t SET t.name = ?1, t.age = ?2 WHERE t.id = ?3",
+                    task.getName(),
+                    task.getAge(),
                     task.getId()))
         .onItem()
         .transformToUni(updatedRows -> Uni.createFrom().voidItem());
@@ -41,11 +41,13 @@ public class TaskRepositoryImpl implements TaskRepository {
 
   @Override
   @WithSession
-  public Uni<List<Task>> findAll() {
+  public Uni<List<Person>> findAll(int page, int pageSize) {
     return panacheRepository
-        .listAll()
+        .findAll()
+        .page(Page.of(page, pageSize))
+        .list()
         .onItem()
-        .transformToMulti(list -> Multi.createFrom().iterable(list))
+        .transformToMulti(Multi.createFrom()::iterable)
         .onItem()
         .transform(mapper::toDomain)
         .collect()
@@ -54,7 +56,7 @@ public class TaskRepositoryImpl implements TaskRepository {
 
   @Override
   @WithSession
-  public Uni<Task> findByID(Long ID) {
+  public Uni<Person> findByID(Long ID) {
     return panacheRepository
         .findById(ID)
         .onItem()
