@@ -10,7 +10,7 @@
   <artifactId>drive</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
-    <module>quarkus_pgsql_repository_adapter</module>
-    <module>spring_pgsql_repository_adapter</module>
+    <module>reactive_pgsql_repository_adapter</module>
+    <module>nonreactive_pgsql_repository_adapter</module>
   </modules>
 </project>

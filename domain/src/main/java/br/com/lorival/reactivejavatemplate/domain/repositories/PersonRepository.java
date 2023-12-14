@@ -8,7 +8,7 @@ public interface PersonRepository {
 
   Uni<Person> insert(Person person);
 
-  Uni<Void> update(Person person);
+  Uni<Person> update(Person person);
 
   Uni<List<Person>> findAll(int page, int pageSize);
 

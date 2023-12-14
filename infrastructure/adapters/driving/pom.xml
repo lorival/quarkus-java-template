@@ -10,7 +10,7 @@
   <artifactId>driving</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
-    <module>quarkus_restful_api_adapter</module>
-    <module>spring_restful_api_adapter</module>
+    <module>reactive_restful_api_adapter</module>
+    <module>nonreactive_restful_api_adapter</module>
   </modules>
 </project>

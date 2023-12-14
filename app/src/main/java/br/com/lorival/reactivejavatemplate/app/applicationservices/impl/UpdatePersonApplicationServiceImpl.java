@@ -21,7 +21,7 @@ public class UpdatePersonApplicationServiceImpl implements UpdatePersonApplicati
             existingPerson -> {
               existingPerson.setName(name);
               existingPerson.setAge(age);
-              return repository.update(existingPerson);
+              return repository.update(existingPerson).replaceWithVoid();
             })
         .onItem()
         .ifNull()

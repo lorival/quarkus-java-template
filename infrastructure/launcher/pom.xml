@@ -10,7 +10,7 @@
   <artifactId>launcher</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
-    <module>quarkus_launcher</module>
-    <module>spring_launcher</module>
+    <module>nonreactive_launcher</module>
+    <module>reactive_launcher</module>
   </modules>
 </project>
