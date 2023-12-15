@@ -12,5 +12,6 @@
   <modules>
     <module>reactive_dependency_injection</module>
     <module>nonreactive_dependency_injection</module>
+    <module>load_tests</module>
   </modules>
 </project>

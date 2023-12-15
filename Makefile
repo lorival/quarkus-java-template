@@ -17,12 +17,12 @@ build:
 .PHONY: run-reactive # = Run the reactive quarkus application in dev mode (press 'q' to quit)
 run-reactive: prepare-to-run
 	mvn -f infrastructure/adapters/drive/reactive_pgsql_repository_adapter liquibase:update
-	mvn -f infrastructure/launcher/reactive_launcher quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
+	mvn -f infrastructure/launchers/reactive_launcher quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
 
 .PHONY: run-nonreactive # = Run the quarkus application in dev mode (press 'q' to quit)
 run-nonreactive: prepare-to-run
 	mvn -f infrastructure/adapters/drive/nonreactive_pgsql_repository_adapter liquibase:update
-	mvn -f infrastructure/launcher/nonreactive_launcher quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
+	mvn -f infrastructure/launchers/nonreactive_launcher quarkus:dev -Dquarkus.swagger-ui.enable=true -Dquarkus.smallrye-openapi.enable=true
 
 .PHONY: prepare-to-run # = Run the pgsql and browser
 prepare-to-run: build
@@ -30,6 +30,13 @@ prepare-to-run: build
 	open http://localhost:5050 # pgadmin
 	open http://localhost:8080/q/swagger-ui/ # swagger-ui
 	open http://localhost:8080/q/dev/ # quarkus for developers
+
+
+.PHONY: load-test # = Run the pgsql and browser
+load-test:
+	mvn -f infrastructure/crosscutting/load_tests clean install
+	mvn -f infrastructure/crosscutting/load_tests gatling:test
+
 
 .PHONY: docker # = Build docker image
 docker:

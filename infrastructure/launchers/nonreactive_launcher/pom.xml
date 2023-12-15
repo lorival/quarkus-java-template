@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>br.com.lorival</groupId>
-    <artifactId>launcher</artifactId>
+    <artifactId>launchers</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>reactive_launcher</artifactId>
+  <artifactId>nonreactive_launcher</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
     <dependency>
@@ -16,17 +16,17 @@
     </dependency>
     <dependency>
       <groupId>br.com.lorival</groupId>
-      <artifactId>reactive_dependency_injection</artifactId>
+      <artifactId>nonreactive_dependency_injection</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>br.com.lorival</groupId>
-      <artifactId>reactive_pgsql_repository_adapter</artifactId>
+      <artifactId>nonreactive_pgsql_repository_adapter</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>br.com.lorival</groupId>
-      <artifactId>reactive_restful_api_adapter</artifactId>
+      <artifactId>nonreactive_restful_api_adapter</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

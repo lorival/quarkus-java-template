@@ -7,7 +7,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <packaging>pom</packaging>
-  <artifactId>launcher</artifactId>
+  <artifactId>launchers</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>nonreactive_launcher</module>

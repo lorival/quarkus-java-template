@@ -12,6 +12,6 @@
   <modules>
     <module>crosscutting</module>
     <module>adapters</module>
-    <module>launcher</module>
+    <module>launchers</module>
   </modules>
 </project>
