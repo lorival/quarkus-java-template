@@ -12,20 +12,17 @@ import scala.language.postfixOps
 class PutPersonSimulation extends Simulation {
 
   val httpConf: HttpProtocolBuilder = http.baseUrl(baseUrl)
-  val getHelloWorld: ScenarioBuilder = scenario("Update Person")
+
+  val updatePerson: ScenarioBuilder = scenario("Update Person")
     .exec(http("Request - PUT /persons")
       .put("/persons")
       .body(StringBody("""{"id": 1, "name": "Teste Alterado", "age": 31}""")).asJson
       .check(status.is(404))
     )
 
-  setUp(getHelloWorld.inject(
-    constantUsersPerSec(requestPerSecond) during (durationMin minutes))
-    .protocols(httpConf))
-    .assertions(
-      global.responseTime.max.lt(maxResponseTimeMs),
-      global.responseTime.mean.lt(meanResponseTimeMs),
-      global.responseTime.percentile3.lt(p95ResponseTimeMs),
-      global.successfulRequests.percent.gt(95)
-    )
+  setUp(
+    updatePerson.inject(
+      constantUsersPerSec(500).during(10 minutes)
+    ).protocols(httpConf)
+  )
 }

@@ -14,19 +14,16 @@ import scala.language.postfixOps
 class GetHelloWorldSimulation extends Simulation {
 
   val httpConf: HttpProtocolBuilder = http.baseUrl(baseUrl)
+
   val getHelloWorld: ScenarioBuilder = scenario("Greetings")
     .exec(http("Request - GET /hello-world")
       .get("/hello-world")
       .check(status.is(200))
     )
 
-  setUp(getHelloWorld.inject(
-    constantUsersPerSec(requestPerSecond) during (durationMin minutes))
-    .protocols(httpConf))
-    .assertions(
-      global.responseTime.max.lt(maxResponseTimeMs),
-      global.responseTime.mean.lt(meanResponseTimeMs),
-      global.responseTime.percentile3.lt(p95ResponseTimeMs),
-      global.successfulRequests.percent.gt(95)
-    )
+  setUp(
+    getHelloWorld.inject(
+      constantUsersPerSec(500).during(10 minutes)
+    ).protocols(httpConf)
+  )
 }

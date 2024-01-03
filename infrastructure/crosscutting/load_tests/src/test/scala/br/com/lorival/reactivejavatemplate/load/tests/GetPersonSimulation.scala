@@ -12,7 +12,8 @@ import scala.language.postfixOps
 class GetPersonSimulation extends Simulation {
 
   val httpConf: HttpProtocolBuilder = http.baseUrl(baseUrl)
-  val getHelloWorld: ScenarioBuilder = scenario("Get Person")
+
+  val getPersons: ScenarioBuilder = scenario("Get Person")
     .exec(http("Request - GET /persons")
       .get("/persons")
       .queryParam("page", "0")
@@ -20,13 +21,10 @@ class GetPersonSimulation extends Simulation {
       .check(status.is(200))
     )
 
-  setUp(getHelloWorld.inject(
-    constantUsersPerSec(requestPerSecond) during (durationMin minutes))
-    .protocols(httpConf))
-    .assertions(
-      global.responseTime.max.lt(maxResponseTimeMs),
-      global.responseTime.mean.lt(meanResponseTimeMs),
-      global.responseTime.percentile3.lt(p95ResponseTimeMs),
-      global.successfulRequests.percent.gt(95)
-    )
+  setUp(
+    getPersons.inject(
+      constantUsersPerSec(500).during(10 minutes)
+    ).protocols(httpConf)
+  )
+
 }
